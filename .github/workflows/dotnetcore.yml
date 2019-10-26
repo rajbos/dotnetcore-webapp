@@ -20,4 +20,4 @@ jobs:
       with:
         app-name: dotnetcorewebapp19
         publish-profile: ${{ secrets.publish_profile }}
-        package: "bin\Release\netcoreapp3.0"
+        package: "bin/Release/netcoreapp3.0"
