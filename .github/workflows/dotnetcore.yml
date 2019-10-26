@@ -14,10 +14,10 @@ jobs:
       with:
         dotnet-version: 3.0.100
     - name: Build with dotnet
-      run: dotnet build --configuration Release -output "bin\Release\netcoreapp3.0"
+      run: dotnet build --configuration Release
 
     - uses: azure/appservice-actions/webapp@master
       with:
         app-name: dotnetcorewebapp19
         publish-profile: ${{ secrets.publish_profile }}
-        package: ./output
+        package: "bin\Release\netcoreapp3.0"
