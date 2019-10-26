@@ -14,7 +14,7 @@ jobs:
       with:
         dotnet-version: 3.0.100
     - name: Build with dotnet
-      run: dotnet build --configuration Release -output ./output
+      run: dotnet build --configuration Release -output "bin\Release\netcoreapp3.0"
 
     - uses: azure/appservice-actions/webapp@master
       with:
