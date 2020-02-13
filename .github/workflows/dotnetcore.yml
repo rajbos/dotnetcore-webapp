@@ -28,3 +28,8 @@ jobs:
         app-name: dotnetcorewebapp19 # Replace with your app name
         publish-profile: ${{ secrets.publish_profile }} # Define secret variable in repository settings as per action documentation
         package: './dotnetcorewebapp' 
+        
+    - name: Curl the website as a smoke test
+      uses: wei/curl@v1
+      with:
+        args: -X GET https://dotnetcorewebapp19.azurewebsites.net/
