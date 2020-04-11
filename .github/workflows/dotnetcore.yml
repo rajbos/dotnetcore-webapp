@@ -21,6 +21,13 @@ jobs:
       run: |
         dotnet publish -c Release -o dotnetcorewebapp 
         
+    # SonarCloud integration
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarcloud-github-action@master
+      env:
+        #GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # not using in PR right now, lets skip this and test :-)
+        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        
     # publish to Azure App Service
     - name: 'Run Azure webapp deploy action using publish profile credentials'
       uses: azure/webapps-deploy@v1
