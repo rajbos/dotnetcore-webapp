@@ -27,6 +27,7 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # is neccesary and is automatically injected by GitHub
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        key: sonar.projectVersion= ${{ github.run_number }}
         
     # publish to Azure App Service
     - name: 'Run Azure webapp deploy action using publish profile credentials'
