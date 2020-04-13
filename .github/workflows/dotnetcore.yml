@@ -21,13 +21,18 @@ jobs:
       run: |
         dotnet publish -c Release -o dotnetcorewebapp 
         
+    - name: Hello world
+      run: echo Hello world, run number = $NBR
+      env: 
+        NBR: ${{ github.RUN_NUMBER }}
+        
     # SonarCloud integration
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # is neccesary and is automatically injected by GitHub
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        key: sonar.projectVersion= ${{ github.run_number }}
+        key: sonar.projectVersion= ${{ github.RUN_NUMBER }}
         
     # publish to Azure App Service
     - name: 'Run Azure webapp deploy action using publish profile credentials'
