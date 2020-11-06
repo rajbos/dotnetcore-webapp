@@ -22,7 +22,11 @@ jobs:
         dotnet publish -c Release -o dotnetcorewebapp 
         
     - name: Hello world
-      run: echo "Hello world, run number = $NBR" $INFO $env:INFO
+      run: |              
+        $search = (Get-ChildItem env:*).GetEnumerator() | Sort-Object Name
+        Write-Host "Env information:"
+        $search | Where-Object {Write-Host " - " $_.Name} | Format-Table -AutoSize 
+        echo "Hello world, run number = $NBR" $INFO $env:INFO
       env: 
         NBR: ${{ github.GITHUB_RUN_NUMBER }}
         INFO: ${{ github.CI }}
