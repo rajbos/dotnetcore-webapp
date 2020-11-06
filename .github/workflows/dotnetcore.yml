@@ -30,7 +30,7 @@ jobs:
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # is neccesary and is automatically injected by GitHub
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # is necessary and is automatically injected by GitHub
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with: 
         projectVersion: ${{ github.RUN_NUMBER }}
