@@ -24,7 +24,7 @@ jobs:
     - name: Hello world
       run: |              
         (Get-ChildItem env:*).GetEnumerator() | Sort-Object Name
-        echo "Hello world, run number = $NBR $INFO $($env:INFO)" 
+        Write-Host "Hello world, run number = $env:NBR $env:INFO $($env:GITHUB_RUN_NUMBER)" 
       env: 
         NBR: ${{ github.GITHUB_RUN_NUMBER }}
         INFO: ${{ github.CI }}
