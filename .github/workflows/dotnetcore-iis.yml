@@ -25,7 +25,11 @@ jobs:
       run: echo "Hello world, run number = $NBR"
       env: 
         NBR: ${{ github.RUN_NUMBER }}
-        
+
+    - name: Deploy to IIS
+      run: /
+        Copy-Item /bin/Release/netcoreapp3.0/publish/* C:/inetpub/wwwroot/dotnetcore-webapp 
+
   scan:
     runs-on: ubuntu-latest
     steps:
