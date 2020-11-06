@@ -24,8 +24,17 @@ jobs:
     - name: Hello world
       run: echo "Hello world, run number = $NBR"
       env: 
-        NBR: ${{ github.RUN_NUMBER }}
-        
+        NBR: ${{ github.GITHUB_RUN_NUMBER }}
+
+    - name: Deploy to IIS
+      run: |
+        iisreset /stop
+        Copy-Item ./dotnetcorewebapp/* C:/inetpub/wwwroot/dotnetcore-webapp -Recurse -Force
+        iisreset /start
+    
+    - name: Curl the website as a smoke test
+      run: curl http://localhost/dotnetcore-webapp
+
   scan:
     runs-on: ubuntu-latest
     steps:
