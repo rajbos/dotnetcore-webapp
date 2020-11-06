@@ -3,7 +3,7 @@ name: .NET Core Deploy to IIS
 on: [push]
 
 jobs:
-  build:
+  build-and-deploy:
 
     runs-on: self-hosted
 
