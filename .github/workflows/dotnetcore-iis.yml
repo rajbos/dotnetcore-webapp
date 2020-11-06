@@ -3,7 +3,7 @@ name: .NET Core Deploy to IIS
 on: [push]
 
 jobs:
-  build:
+  build-and-deploy:
 
     runs-on: self-hosted
 
@@ -20,25 +20,12 @@ jobs:
     - name: dotnet publish
       run: |
         dotnet publish -c Release -o dotnetcorewebapp 
-        
-    - name: Hello world
-      run: echo "Hello world, run number = $NBR"
-      env: 
-        NBR: ${{ github.RUN_NUMBER }}
 
     - name: Deploy to IIS
-      run: /
-        Copy-Item /bin/Release/netcoreapp3.0/publish/* C:/inetpub/wwwroot/dotnetcore-webapp 
-
-  scan:
-    runs-on: ubuntu-latest
-    steps:
-    # SonarCloud integration
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # is necessary and is automatically injected by GitHub
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      with: 
-        projectVersion: ${{ github.RUN_NUMBER }}
-
+      run: |
+        iisreset /stop
+        Copy-Item ./dotnetcorewebapp/* C:/inetpub/wwwroot/dotnetcore-webapp -Recurse -Force
+        iisreset /start
+    
+    - name: Curl the website as a smoke test
+      run: curl http://localhost/dotnetcore-webapp
