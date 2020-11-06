@@ -20,14 +20,6 @@ jobs:
     - name: dotnet publish
       run: |
         dotnet publish -c Release -o dotnetcorewebapp 
-        
-    - name: Hello world
-      run: |              
-        (Get-ChildItem env:*).GetEnumerator() | Sort-Object Name
-        Write-Host "Hello world, run number = $env:NBR $env:INFO $($env:GITHUB_RUN_NUMBER)" 
-      env: 
-        NBR: ${{ github.GITHUB_RUN_NUMBER }}
-        INFO: ${{ github.CI }}
 
     - name: Deploy to IIS
       run: |
@@ -37,16 +29,3 @@ jobs:
     
     - name: Curl the website as a smoke test
       run: curl http://localhost/dotnetcore-webapp
-
-  scan:
-    runs-on: ubuntu-latest
-    steps:
-    # SonarCloud integration
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # is necessary and is automatically injected by GitHub
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      with: 
-        projectVersion: ${{ github.RUN_NUMBER }}
-
