@@ -26,6 +26,9 @@ jobs:
       env: 
         NBR: ${{ github.RUN_NUMBER }}
         
+  scan:
+    runs-on: ubuntu-latest
+    steps:
     # SonarCloud integration
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
