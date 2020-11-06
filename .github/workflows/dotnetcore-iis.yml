@@ -22,7 +22,7 @@ jobs:
         dotnet publish -c Release -o dotnetcorewebapp 
         
     - name: Hello world
-      run: echo Hello world, run number = $NBR
+      run: echo "Hello world, run number = $NBR"
       env: 
         NBR: ${{ github.RUN_NUMBER }}
         
