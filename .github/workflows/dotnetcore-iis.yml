@@ -23,10 +23,8 @@ jobs:
         
     - name: Hello world
       run: |              
-        $search = (Get-ChildItem env:*).GetEnumerator() | Sort-Object Name
-        Write-Host "Env information:"
-        $search | Where-Object {Write-Host " - " $_.Name} | Format-Table -AutoSize 
-        echo "Hello world, run number = $NBR" $INFO $env:INFO
+        (Get-ChildItem env:*).GetEnumerator() | Sort-Object Name
+        echo "Hello world, run number = $NBR $INFO $($env:INFO)" 
       env: 
         NBR: ${{ github.GITHUB_RUN_NUMBER }}
         INFO: ${{ github.CI }}
