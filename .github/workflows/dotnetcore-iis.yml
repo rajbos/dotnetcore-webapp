@@ -34,5 +34,5 @@ jobs:
     - name: Run Web Test
       run: |
         dotnet build --configuration Release .\dotnet-core-webapp.webtest
-        cd .\dotnet-core-webapp.webtest
+        cd .\dotnet-core-webapp.webtests
         dotnet test
