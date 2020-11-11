@@ -5,3 +5,8 @@
 /.vs/dotnetcore-webapp/v16
 /dotnet-core-webapp.webtests/bin/Debug
 /dotnet-core-webapp.webtests/obj
+/.vs/dotnetcore-webapp/config
+/dotnet-core-webapp.webtests/dotnetcore-webapp.webtests.csproj.user
+/UnitTestProject1/bin/Debug/netcoreapp3.1
+/UnitTestProject1/obj
+/.vs/dotnetcore-webapp/DesignTimeBuild
