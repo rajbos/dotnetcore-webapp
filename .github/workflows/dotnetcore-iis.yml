@@ -17,6 +17,7 @@ jobs:
     # dotnet build and publish
     - name: Build with dotnet
       run: dotnet build --configuration Release
+
     - name: dotnet publish
       run: |
         dotnet publish -c Release -o dotnetcorewebapp 
@@ -29,3 +30,8 @@ jobs:
     
     - name: Curl the website as a smoke test
       run: curl http://localhost/dotnetcore-webapp
+
+    - name: Run Web Test
+      run: |
+        dotnet build --configuration Release
+        dotnet test
