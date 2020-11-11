@@ -37,6 +37,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with: 
         projectVersion: ${{ github.RUN_NUMBER }}
+        projectBaseDir: dotnet-core-webapp
         
     # publish to Azure App Service
     - name: 'Run Azure webapp deploy action using publish profile credentials'
