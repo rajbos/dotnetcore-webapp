@@ -54,8 +54,8 @@ jobs:
         args: -X GET https://dotnetcorewebapp19.azurewebsites.net/
 
     - name: Run Web Test
-      shell: powershell
       run: |
+        $PSVersionTable
         # overwrite the AppSettings.json
         $pathToFile = "./dotnet-core-webapp.webtests/AppSettings.json"
         $fileContent = Get-Content $pathToFile
