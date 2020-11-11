@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Threading;
+using dotnetcorewebapp.webtests.Helpers;
 using dotnetcorewebapp.webtests.PageObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
@@ -11,7 +12,10 @@ namespace dotnetcorewebapp.webtests
     [TestClass]
     public class UnitTest1
     {
-        private const string url = "http://localhost/dotnetcore-webapp/";
+        private static string GetUrl(TestContext context)
+        {
+           return Configuration.GetApplicationConfiguration(context.TestDir).testUrl;
+        }
         /// <summary>
         /// Central store of the driver instance to use
         /// </summary>
@@ -32,6 +36,7 @@ namespace dotnetcorewebapp.webtests
             //Create the reference for our browser
             Driver = new ChromeDriver(options);
 
+            var url = GetUrl(context);
             //Navigate to start page
             Driver.Navigate().GoToUrl(url);
         }
