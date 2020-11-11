@@ -4,19 +4,18 @@ namespace dotnetcorewebapp.webtests.Helpers
 {
     public static class Configuration
     {
-        public static IConfigurationRoot GetConfigurationRoot(string outputPath)
+        public static IConfigurationRoot GetConfigurationRoot()
         {
             return new ConfigurationBuilder()
-                .SetBasePath(outputPath)
-                .AddJsonFile("appsettings.json", optional: true)
+                .AddJsonFile("AppSettings.json", optional: true)
                 .Build();
         }
 
-        public static TestConfiguration GetApplicationConfiguration(string outputPath)
+        public static TestConfiguration GetApplicationConfiguration()
         {
             var configuration = new TestConfiguration();
 
-            var iConfig = GetConfigurationRoot(outputPath);
+            var iConfig = GetConfigurationRoot();
 
             ConfigurationBinder.Bind(iConfig, configuration);
             

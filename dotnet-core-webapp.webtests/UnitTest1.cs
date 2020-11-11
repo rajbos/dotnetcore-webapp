@@ -12,9 +12,9 @@ namespace dotnetcorewebapp.webtests
     [TestClass]
     public class UnitTest1
     {
-        private static string GetUrl(TestContext context)
+        private static string GetUrl()
         {
-           return Configuration.GetApplicationConfiguration(context.TestDir).testUrl;
+           return Configuration.GetApplicationConfiguration().testUrl;
         }
         /// <summary>
         /// Central store of the driver instance to use
@@ -36,7 +36,7 @@ namespace dotnetcorewebapp.webtests
             //Create the reference for our browser
             Driver = new ChromeDriver(options);
 
-            var url = GetUrl(context);
+            var url = GetUrl();
             //Navigate to start page
             Driver.Navigate().GoToUrl(url);
         }
