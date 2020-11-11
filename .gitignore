@@ -3,3 +3,5 @@
 ################################################################################
 
 /.vs/dotnetcore-webapp/v16
+/dotnet-core-webapp.webtests/bin/Debug
+/dotnet-core-webapp.webtests/obj
