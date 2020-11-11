@@ -24,6 +24,7 @@ jobs:
       run: |
         dotnet publish -c Release -o dotnetcorewebapp ./dotnet-core-webapp
         
+    # test for usage in versioning
     - name: Hello world
       run: echo Hello world, run number = $NBR
       env: 
@@ -53,6 +54,7 @@ jobs:
         args: -X GET https://dotnetcorewebapp19.azurewebsites.net/
 
     - name: Run Web Test
+      shell: powershell
       run: |
         # overwrite the AppSettings.json
         $pathToFile = "./dotnet-core-webapp.webtests/AppSettings.json"
