@@ -53,6 +53,12 @@ jobs:
       with:
         args: -X GET https://dotnetcorewebapp19.azurewebsites.net/
 
+
+  webtest:
+
+    runs-on: windows-latest
+
+    steps:
     - name: Run Web Test
       run: |
         $PSVersionTable
