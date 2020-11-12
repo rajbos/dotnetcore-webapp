@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30709.132
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnetcore-webapp", "dotnet-core-webapp\dotnetcore-webapp.csproj", "{BDD47BF9-52F0-4C96-8827-BF074AC49ECE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnetcore-webapp.webtests", "dotnet-core-webapp.webtests\dotnetcore-webapp.webtests.csproj", "{D3175731-C420-46C3-A355-E3D87AD23D9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnetcore-webapp.webtests", "dotnet-core-webapp.webtests\dotnetcore-webapp.webtests.csproj", "{D3175731-C420-46C3-A355-E3D87AD23D9C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9C133C95-80C2-401C-99C1-B4E6F9E6778F}"
 	ProjectSection(SolutionItems) = preProject
@@ -23,7 +23,8 @@ Global
 		{BDD47BF9-52F0-4C96-8827-BF074AC49ECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BDD47BF9-52F0-4C96-8827-BF074AC49ECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3175731-C420-46C3-A355-E3D87AD23D9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D3175731-C420-46C3-A355-E3D87AD23D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3175731-C420-46C3-A355-E3D87AD23D9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3175731-C420-46C3-A355-E3D87AD23D9C}.Release|Any CPU.ActiveCfg = Release|Any CPU		
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

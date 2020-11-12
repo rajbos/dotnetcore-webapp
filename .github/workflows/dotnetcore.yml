@@ -3,7 +3,7 @@ name: .NET Core
 on: [push]
 
 jobs:
-  build:
+  build-and-deploy:
 
     runs-on: ubuntu-latest
 
@@ -16,11 +16,14 @@ jobs:
     
     # dotnet build and publish
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: |
+        dotnet build --configuration Release ./dotnet-core-webapp/dotnetcore-webapp.csproj
+      
     - name: dotnet publish
       run: |
-        dotnet publish -c Release -o dotnetcorewebapp 
+        dotnet publish -c Release -o dotnetcorewebapp ./dotnet-core-webapp
         
+    # test for usage in versioning
     - name: Hello world
       run: echo Hello world, run number = $NBR
       env: 
@@ -34,6 +37,7 @@ jobs:
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       with: 
         projectVersion: ${{ github.RUN_NUMBER }}
+        projectBaseDir: dotnet-core-webapp
         
     # publish to Azure App Service
     - name: 'Run Azure webapp deploy action using publish profile credentials'
@@ -47,3 +51,26 @@ jobs:
       uses: wei/curl@v1
       with:
         args: -X GET https://dotnetcorewebapp19.azurewebsites.net/
+
+
+  webtest:
+
+    runs-on: windows-latest
+    needs: build-and-deploy
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Run Web Test
+      run: |
+        # overwrite the AppSettings.json
+        $pathToFile = "./dotnet-core-webapp.webtests/AppSettings.json"
+        $fileContent = Get-Content $pathToFile
+        $fileContent = $fileContent.Replace("http://localhost/dotnetcore-webapp/", "https://dotnetcorewebapp19.azurewebsites.net/")
+        Set-Content $pathToFile $fileContent
+
+        # build the test project
+        dotnet build --configuration Release ./dotnet-core-webapp.webtests
+        cd ./dotnet-core-webapp.webtests
+
+        # execute the tests
+        dotnet test

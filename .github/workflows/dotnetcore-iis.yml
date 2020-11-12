@@ -6,7 +6,7 @@ jobs:
   build-and-deploy:
 
     runs-on: self-hosted
-
+    
     steps:
     - uses: actions/checkout@v1
     - name: Setup .NET Core
@@ -34,5 +34,5 @@ jobs:
     - name: Run Web Test
       run: |
         dotnet build --configuration Release .\dotnet-core-webapp.webtest
-        cd .\dotnet-core-webapp.webtest
+        cd .\dotnet-core-webapp.webtests
         dotnet test
