@@ -62,15 +62,15 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run Web Test
       run: |
-        pwd
-        ls
         # overwrite the AppSettings.json
         $pathToFile = "./dotnet-core-webapp.webtests/AppSettings.json"
         $fileContent = Get-Content $pathToFile
         $fileContent = $fileContent.Replace("http://localhost/dotnetcore-webapp/", "https://dotnetcorewebapp19.azurewebsites.net/")
         Set-Content $pathToFile $fileContent
 
+        # build the test project
         dotnet build --configuration Release ./dotnet-core-webapp.webtests
         cd ./dotnet-core-webapp.webtests
 
+        # execute the tests
         dotnet test
