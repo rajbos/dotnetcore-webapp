@@ -17,7 +17,6 @@ jobs:
     # dotnet build and publish
     - name: Build with dotnet
       run: |
-        ls
         dotnet build --configuration Release ./dotnet-core-webapp/dotnetcore-webapp.csproj
       
     - name: dotnet publish
@@ -69,7 +68,7 @@ jobs:
         $pathToFile = "./dotnet-core-webapp.webtests/AppSettings.json"
         $fileContent = Get-Content $pathToFile
         $fileContent = $fileContent.Replace("http://localhost/dotnetcore-webapp/", "https://dotnetcorewebapp19.azurewebsites.net/")
-        Set-Content $(pathToFile) $fileContent
+        Set-Content $pathToFile $fileContent
 
         dotnet build --configuration Release ./dotnet-core-webapp.webtests
         cd ./dotnet-core-webapp.webtests
