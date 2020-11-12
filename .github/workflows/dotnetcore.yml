@@ -57,8 +57,10 @@ jobs:
   webtest:
 
     runs-on: windows-latest
+    needs: build-and-deploy
 
     steps:
+    - uses: actions/checkout@v1
     - name: Run Web Test
       run: |
         pwd
