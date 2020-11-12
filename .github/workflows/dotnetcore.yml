@@ -61,7 +61,8 @@ jobs:
     steps:
     - name: Run Web Test
       run: |
-        $PSVersionTable
+        pwd
+        ls
         # overwrite the AppSettings.json
         $pathToFile = "./dotnet-core-webapp.webtests/AppSettings.json"
         $fileContent = Get-Content $pathToFile
