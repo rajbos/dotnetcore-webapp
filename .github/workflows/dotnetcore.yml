@@ -8,6 +8,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Demo secret
+      run: |
+        echo "${{ secrets.DEMO_LOG }}"
+        echo ${{secrets.DEMO_LOG}} | sed 's/./& /g'   
+          
     - uses: actions/checkout@v1
     - name: Setup .NET Core
       uses: actions/setup-dotnet@v1
@@ -28,19 +33,6 @@ jobs:
       run: echo Hello world, run number = $NBR
       env: 
         NBR: ${{ github.RUN_NUMBER }}
-        
-    - name: Demo secret 1
-      run: echo "${{ secrets.DEMO_LOG }}"
-    
-    - name: Demo secret 2
-      env: 
-        DEMO_LOG: ${{ secrets.DEMO_LOG }}
-      run: |
-        echo "${{ secrets.DEMO_LOG }}" | base64
-        echo "2: $DEMO_LOG" | base64
-        variable=$DEMO_LOG
-        echo $variable | base64
-        echo ${{secrets.DEMO_LOG}} | sed 's/./& /g'
         
     # SonarCloud integration
     - name: SonarCloud Scan
