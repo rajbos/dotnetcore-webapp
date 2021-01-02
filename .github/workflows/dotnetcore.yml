@@ -37,8 +37,8 @@ jobs:
         DEMO_LOG: ${{ secrets.DEMO_LOG }}
       run: |
         echo "${{ secrets.DEMO_LOG }}" | base64
-        echo "$DEMO_LOG" | base64
-        variable = $DEMO_LOG
+        echo "2: $DEMO_LOG" | base64
+        variable=$DEMO_LOG
         echo $variable | base64
         echo ${{secrets.DEMO_LOG}} | sed 's/./& /g'
         
