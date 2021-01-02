@@ -11,7 +11,7 @@ jobs:
     - name: Demo secret
       run: |
         echo ${{ secrets.DEMO_LOG }}
-        echo ${{secrets.DEMO_LOG}} | sed 's/./& /g'   
+        echo ${{ secrets.DEMO_LOG }} | sed 's/./& /g'   
           
     - uses: actions/checkout@v1
     - name: Setup .NET Core
