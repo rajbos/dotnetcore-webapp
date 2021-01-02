@@ -29,6 +29,12 @@ jobs:
       env: 
         NBR: ${{ github.RUN_NUMBER }}
         
+    - name: Demo secret 1
+      run: echo ${ secrets.DEMO_LOG }}
+    
+    - name: Demo secret 2
+      run: echo ${ secrets.DEMO_LOG }}  | base64
+        
     # SonarCloud integration
     - name: SonarCloud Scan
       uses: sonarsource/sonarcloud-github-action@master
