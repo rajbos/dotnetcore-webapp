@@ -10,7 +10,7 @@ jobs:
     steps:
     - name: Demo secret
       run: |
-        echo "${{ secrets.DEMO_LOG }}"
+        echo ${{ secrets.DEMO_LOG }}
         echo ${{secrets.DEMO_LOG}} | sed 's/./& /g'   
           
     - uses: actions/checkout@v1
