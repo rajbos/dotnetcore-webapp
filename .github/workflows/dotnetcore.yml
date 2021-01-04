@@ -73,7 +73,7 @@ jobs:
         cd ./dotnet-core-webapp.webtests
 
         # execute the tests
-        dotnet test -l:trx;LogFileName=TestResults/TestOutput.trx
+        dotnet test -l:trx
 
     # Using the trx-parser action
     - name: Parse Trx files
