@@ -73,4 +73,12 @@ jobs:
         cd ./dotnet-core-webapp.webtests
 
         # execute the tests
-        dotnet test
+        dotnet test -l:trx;LogFileName=TestResults/TestOutput.trx
+
+    # Using the trx-parser action
+    - name: Parse Trx files
+      uses: NasAmin/trx-parser@v0.0.3
+      id: trx-parser
+      with:
+        TRX_PATH: ${{ github.workspace }}/TestResults #This should be the path to your TRX files
+        REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}   
