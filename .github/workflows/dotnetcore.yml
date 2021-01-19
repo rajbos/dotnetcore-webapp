@@ -32,7 +32,7 @@ jobs:
         
     # SonarCloud integration
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
+      uses: rajbos/sonarcloud-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # is necessary and is automatically injected by GitHub
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
