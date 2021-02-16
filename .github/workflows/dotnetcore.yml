@@ -49,7 +49,7 @@ jobs:
         package: './dotnetcorewebapp' 
         
     - name: Curl the website as a smoke test
-      uses: rajbos-actions/curl@v1
+      uses: rajbos-actions/curl@v1.1.1
       with:
         args: -X GET https://dotnetcorewebapp19.azurewebsites.net/
 
