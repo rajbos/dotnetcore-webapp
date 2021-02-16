@@ -1,10 +1,16 @@
-# Set update schedule for GitHub Actions
+#Dependabot will check the dependencies in this repo for updates
 
 version: 2
 updates:
-
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
       # Check for updates to GitHub Actions every weekday
+      interval: "daily"
+
+
+  - package-ecosystem: "nuget"
+    directory: "/"
+    schedule:
+      # Check for updates to on nuget packages every weekday
       interval: "daily"
