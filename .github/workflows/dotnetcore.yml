@@ -4,6 +4,7 @@ on: [push]
 
 jobs:
   build-and-deploy:
+    environment: Production
 
     runs-on: ubuntu-latest
 
@@ -31,7 +32,7 @@ jobs:
         
     # SonarCloud integration
     - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
+      uses: rajbos-actions/sonarcloud-github-action@master
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # is necessary and is automatically injected by GitHub
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
@@ -41,14 +42,14 @@ jobs:
         
     # publish to Azure App Service
     - name: 'Run Azure webapp deploy action using publish profile credentials'
-      uses: azure/webapps-deploy@v2
+      uses: rajbos-actions/webapps-deploy@v2
       with: 
         app-name: dotnetcorewebapp19 # Replace with your app name
         publish-profile: ${{ secrets.publish_profile }} # Define secret variable in repository settings as per action documentation
         package: './dotnetcorewebapp' 
         
     - name: Curl the website as a smoke test
-      uses: wei/curl@v1
+      uses: rajbos-actions/curl@v1
       with:
         args: -X GET https://dotnetcorewebapp19.azurewebsites.net/
 
@@ -77,7 +78,7 @@ jobs:
 
     # Using the trx-parser action
     - name: Parse Trx files
-      uses: NasAmin/trx-parser@v0.0.3
+      uses: rajbos-actions/trx-parser@v0.0.3
       id: trx-parser
       with:
         TRX_PATH: ${{ github.workspace }}\\dotnet-core-webapp.webtests\TestResults #This should be the path to your TRX files
