@@ -83,3 +83,4 @@ jobs:
       with:
         TRX_PATH: ${{ github.workspace }}\\dotnet-core-webapp.webtests\TestResults #This should be the path to your TRX files
         REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
