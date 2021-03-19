@@ -54,7 +54,7 @@ jobs:
         args: -X GET https://dotnetcorewebapp19.azurewebsites.net/
         
     - name: Curl the website as a smoke test
-      uses: wei/curl@fccac89c423b5af5dca9b03b337670955ba52a81
+      uses: wei/curl@61d92b5169ea0425820dd13cf6fbad66b483e9f1
       with:
         args: -X GET https://dotnetcorewebapp19.azurewebsites.net/
 
