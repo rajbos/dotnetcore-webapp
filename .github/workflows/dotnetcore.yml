@@ -42,7 +42,7 @@ jobs:
         
     # publish to Azure App Service
     - name: 'Run Azure webapp deploy action using publish profile credentials'
-      uses: rajbos-actions/webapps-deploy@v2
+      uses: rajbos-actions/webapps-deploy@v2.1.5
       with: 
         app-name: dotnetcorewebapp19 # Replace with your app name
         publish-profile: ${{ secrets.publish_profile }} # Define secret variable in repository settings as per action documentation
