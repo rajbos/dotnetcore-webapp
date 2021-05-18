@@ -1,4 +1,4 @@
-name: .NET Core
+name: .NET Core ${{ env.nameVar }}
 
 on: 
   push:
@@ -10,7 +10,7 @@ env:
 
 jobs:
   build-and-deploy:
-    name: Testing with ${{ env.nameVar }}
+    #name: Testing with ${{ env.nameVar }} this one will not start
     environment: Production
 
     runs-on: ubuntu-latest
