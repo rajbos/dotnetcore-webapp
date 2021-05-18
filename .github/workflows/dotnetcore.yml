@@ -2,6 +2,9 @@ name: .NET Core
 
 on: [push]
 
+env:
+  nameVar: "var from name"
+
 jobs:
   build-and-deploy:
     environment: Production
@@ -16,7 +19,7 @@ jobs:
         dotnet-version: 3.0.100
     
     # dotnet build and publish
-    - name: Build with dotnet
+    - name: Build with dotnet ${{ env.nameVar }}
       run: |
         dotnet build --configuration Release ./dotnet-core-webapp/dotnetcore-webapp.csproj
       
