@@ -6,10 +6,11 @@ on:
   workflow_dispatch: 
 
 env:
-  nameVar: "var from name"
+  nameVar: "[name from var]"
 
 jobs:
   build-and-deploy:
+    name: Testing with ${{ env.nameVar }}
     environment: Production
 
     runs-on: ubuntu-latest
