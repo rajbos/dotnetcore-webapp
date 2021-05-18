@@ -1,4 +1,4 @@
-name: .NET Core ${{ env.nameVar }}
+name: .NET Core # ${{ env.nameVar }} this one will not start
 
 on: 
   push:
