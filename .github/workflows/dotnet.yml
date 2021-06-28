@@ -21,5 +21,9 @@ jobs:
   #    run: dotnet restore
     - name: Build
       run: dotnet build --configuration Release ./dotnet-core-webapp/dotnetcore-webapp.csproj
+      
+    - name: dotnet publish
+      run: |
+        dotnet publish -c Release -o dotnetcorewebapp ./dotnet-core-webapp
   #  - name: Test
   #    run: dotnet test --no-build --verbosity normal
