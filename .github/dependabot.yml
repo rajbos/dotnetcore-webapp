@@ -6,11 +6,11 @@ updates:
     directory: ".github/workflows/"
     schedule:
       # Check for updates to GitHub Actions every weekday
-      interval: "weekly"
+      interval: "monthly"
 
 
   - package-ecosystem: "nuget"
     directory: "/"
     schedule:
       # Check for updates to on nuget packages every weekday
-      interval: "weekly"
+      interval: "monthly"
