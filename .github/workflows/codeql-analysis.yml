@@ -32,6 +32,11 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v3
       
+    - name: Setup .NET Core with version 3
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: 3.0.100
+      
     # If this run was triggered by a pull request event, then checkout
     # the head of the pull request instead of the merge commit.
     - run: git checkout
