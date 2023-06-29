@@ -10,6 +10,12 @@
     <None Update="appsettings.Development.json">
       <DependentUpon>appsettings.json</DependentUpon>
     </None>
+    <None Update="appsettings.DevTest.json">
+      <DependentUpon>appsettings.json</DependentUpon>
+    </None>
+    <None Update="appsettings.Acc.json">
+      <DependentUpon>appsettings.json</DependentUpon>
+    </None>
   </ItemGroup>
 
 </Project>
